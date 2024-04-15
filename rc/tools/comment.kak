@@ -69,6 +69,14 @@ hook global BufSetOption filetype=haml %{
     set-option buffer comment_line '-#'
 }
 
+hook global BufSetOption filetype=(hemlock|hocc) %{
+    set-option buffer comment_line '#'
+    set-option buffer comment_block_begin '(*
+'
+    set-option buffer comment_block_end '*)
+'
+}
+
 hook global BufSetOption filetype=(html|xml) %{
     set-option buffer comment_line ''
     set-option buffer comment_block_begin '<!--'
@@ -103,8 +111,10 @@ hook global BufSetOption filetype=markdown %{
 
 hook global BufSetOption filetype=(ocaml|coq) %{
     set-option buffer comment_line ''
-    set-option buffer comment_block_begin '(* '
-    set-option buffer comment_block_end ' *)'
+    set-option buffer comment_block_begin '(*
+'
+    set-option buffer comment_block_end '*)
+'
 }
 
 hook global BufSetOption filetype=((free|object)?pascal|delphi) %{
