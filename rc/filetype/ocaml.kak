@@ -117,14 +117,3 @@ define-command -hidden ocaml-insert-on-new-line %{
         try %{ execute-keys -draft k x s (=|\bdo)$ <ret> j <a-gt> }
     }
 }
-
-# The OCaml comment is `(* Some comment *)`. Like the C-family this can be a multiline comment.
-#
-# Recognize when the user is trying to commence a comment when they type `(*` and
-# then automatically insert `*)` on behalf of the user. A small convenience.
-define-command -hidden ocaml-insert-closing-comment-bracket %{
-    try %{
-        execute-keys -draft 'HH<a-k>\(\*<ret>'
-        execute-keys '  *)<left><left><left>'
-    }
-}
